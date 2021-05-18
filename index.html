@@ -57,10 +57,31 @@
     </main>
 
     <!-- JavaScript -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
     <script type="text/javascript">
-    
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+    apiKey: "AIzaSyB6ZGzW78Yv4UN8mNSBlxeqjNtJK7H_QsE",
+    authDomain: "dads-rickroll.firebaseapp.com",
+    projectId: "dads-rickroll",
+    storageBucket: "dads-rickroll.appspot.com",
+    messagingSenderId: "346126572539",
+    appId: "1:346126572539:web:b4a5b032c7c4e1ada1c95e"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    function logPrankEvent(randid, time, ip) {
+      firebase.database().ref('/' + randid).set({
+      time: time,
+      ip: ip,
+      });
+    }
+
+
+
+
     // Total seconds to wait
-    var seconds = 5;
+    var seconds = 6;
     
     function countdown() {
         seconds = seconds - 1;
